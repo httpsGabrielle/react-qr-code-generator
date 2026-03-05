@@ -92,19 +92,19 @@ src/
 
 ## ⚙️ Funções Principais
 
-- `src/routes/index.jsx` -> `Router()`
+- `src/routes/index.jsx`
   - Define as rotas da aplicação.
   - Redireciona `/` para `/qrcode`.
 
-- `src/pages/Home/index.jsx` -> `handleSubmit(e)`
+- `src/pages/Home/index.jsx
   - Recebe o texto enviado pelo formulário.
   - Atualiza o estado `QRCodeText` para renderizar o QR Code.
 
-- `src/pages/Home/QrcodeForm.jsx` -> `handleSubmit()`
+- `src/pages/Home/QrcodeForm.jsx`
   - Coleta o valor digitado no input.
   - Dispara `onSubmitForm({ text })` para a página `Home`.
 
-- `src/components/QrcodeGenerator.jsx` -> `handleDownload()`
+- `src/components/QrcodeGenerator.jsx`
   - Captura o canvas do QR Code.
   - Converte para Data URL (`image/png`).
   - Cria um link temporário e realiza o download do arquivo `qrcode.png`.
