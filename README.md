@@ -96,7 +96,7 @@ src/
   - Define as rotas da aplicação.
   - Redireciona `/` para `/qrcode`.
 
-- `src/pages/Home/index.jsx
+- `src/pages/Home/index.jsx`
   - Recebe o texto enviado pelo formulário.
   - Atualiza o estado `QRCodeText` para renderizar o QR Code.
 
