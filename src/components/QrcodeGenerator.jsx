@@ -2,7 +2,12 @@ import { useRef, useState } from 'react';
 import { QRCodeCanvas, QRCodeSVG } from 'qrcode.react';
 import Button from './Button';
 
-export default function QrcodeGenerator({ text, size = { width: 160, height: 160 }, allowsDownload = true }) {
+export default function QrcodeGenerator({
+	text,
+	fgColor = '#00000',
+	size = { width: 160, height: 160 },
+	allowsDownload = true,
+}) {
 	const qrRef = useRef();
 
 	function handleDownload() {
@@ -20,10 +25,10 @@ export default function QrcodeGenerator({ text, size = { width: 160, height: 160
 		<>
 			<div
 				ref={qrRef}
-				className="mx-auto bg-neutral-100 rounded-md p-1"
+				className="mx-auto bg-neutral-100 rounded-md"
 				style={{ width: `${size.width}px`, height: `${size.height}px` }}
 			>
-				{text && <QRCodeCanvas value={text} size={QR_SIZE} />}
+				{text && <QRCodeCanvas value={text} size={QR_SIZE} fgColor={fgColor} marginSize={1} />}
 			</div>
 
 			<Button

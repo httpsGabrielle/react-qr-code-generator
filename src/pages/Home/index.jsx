@@ -8,12 +8,11 @@ import QrcodeView from './QrcodeView';
 // ----------------------------------------------------------------
 
 export default function Home() {
-	const [QRCodeText, setQRCodeText] = useState(''); // Estado para armazenar o link ou texto a ser convertido em QR Code
+	const [design, setDesign] = useState({}); // # Estado para armazenar o design do QR Code a ser gerado
 
 	// Função para lidar com o envio do formulário e geração do QR Code
 	function handleSubmit(e) {
-		const { text } = e || {};
-		setQRCodeText(text);
+		setDesign(e || {});
 	}
 
 	return (
@@ -25,7 +24,7 @@ export default function Home() {
 							handleSubmit(e);
 						}}
 					/>
-					<QrcodeView text={QRCodeText} />
+					<QrcodeView {...design} />
 				</div>
 			</div>
 		</>
