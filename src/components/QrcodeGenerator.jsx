@@ -22,10 +22,13 @@ export default function QrcodeGenerator({
 
 	const QR_SIZE = (size?.width || size?.height) - 8; // Subtrai 8px para considerar o padding do container
 
-	console.log(image);
 	return (
 		<>
-			<div ref={qrRef} className="mx-auto bg-neutral-100 rounded-md p-1">
+			<div
+				ref={qrRef}
+				className={`mx-auto p-2 rounded-md ${!text ? 'mx-auto bg-neutral-100 rounded-md p-1' : 'border-1 border-neutral-50  shadow '}`}
+				style={{ minWidth: `${size.width}px`, minHeight: `${size.height}px` }}
+			>
 				{text && (
 					<QRCodeCanvas
 						value={text}

@@ -75,21 +75,27 @@ export default function Home({ onSubmitForm }) {
 				</div>
 
 				{/* Logo pra QR Code */}
-				<div>
-					<p className="text-sm text-neutral-500 font-medium">Imagem:</p>
 					<div>
-						<label for="small-file-input" class="sr-only">
-							Choose file
+						<p className="text-sm text-neutral-500 font-medium mb-2">Imagem:</p>
+
+						<label
+							htmlFor="small-file-input"
+							className="flex items-center justify-between gap-3 w-full p-3 border border-gray-300 rounded-lg cursor-pointer hover:border-blue-400 hover:bg-blue-50/40 transition"
+						>
+							<span className="text-sm text-neutral-600 truncate">
+								{image?.name ? image.name : 'Escolha uma imagem para o centro do QR Code'}
+							</span>
+							<span className="text-sm font-medium px-2 py-1 rounded bg-blue-100 text-blue-700">Selecionar</span>
 						</label>
+
 						<input
+							id="small-file-input"
 							type="file"
-							name="small-file-input"
-							id="file-input"
 							accept="image/*"
-							onChange={(e) => setImage(e.target.files[0])}
+							className="hidden"
+							onChange={(e) => setImage(e.target.files?.[0] || null)}
 						/>
 					</div>
-				</div>
 
 				{/* Botão para gerar o QR Code */}
 				<Button
