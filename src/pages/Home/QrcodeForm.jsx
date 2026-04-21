@@ -38,10 +38,10 @@ export default function Home({ onSubmitForm }) {
 	};
 
 	return (
-		<div className="flex-1 h-full">
-			<div className="w-md flex flex-col gap-5 justify-center h-full relative ">
+		<div className="flex-1 h-min-screen">
+			<div className="w-100 flex flex-col gap-5 justify-center h-min-full ">
 				{/* Logo */}
-				<div className="absolute top-10 left-0 flex items-center gap-3">
+				<div className="flex items-center gap-3">
 					<div className="bg-[url(./assets/images/logo.svg)] w-8 h-8 bg-cover bg-center"></div>
 					<div>
 						<h1 className="text-md font-mono font-bold">QR Code Generator</h1>
@@ -75,27 +75,27 @@ export default function Home({ onSubmitForm }) {
 				</div>
 
 				{/* Logo pra QR Code */}
-					<div>
-						<p className="text-sm text-neutral-500 font-medium mb-2">Imagem:</p>
+				<div>
+					<p className="text-sm text-neutral-500 font-medium mb-2">Imagem:</p>
 
-						<label
-							htmlFor="small-file-input"
-							className="flex items-center justify-between gap-3 w-full p-3 border border-gray-300 rounded-lg cursor-pointer hover:border-blue-400 hover:bg-blue-50/40 transition"
-						>
-							<span className="text-sm text-neutral-600 truncate">
-								{image?.name ? image.name : 'Escolha uma imagem para o centro do QR Code'}
-							</span>
-							<span className="text-sm font-medium px-2 py-1 rounded bg-blue-100 text-blue-700">Selecionar</span>
-						</label>
+					<label
+						htmlFor="small-file-input"
+						className="flex items-center justify-between gap-3 w-full p-3 border border-gray-300 rounded-lg cursor-pointer hover:border-blue-400 hover:bg-blue-50/40 transition"
+					>
+						<span className="text-sm text-neutral-600 truncate">
+							{image?.name ? image.name : 'Escolha uma imagem para o centro do QR Code'}
+						</span>
+						<span className="text-sm font-medium px-2 py-1 rounded bg-blue-100 text-blue-700">Selecionar</span>
+					</label>
 
-						<input
-							id="small-file-input"
-							type="file"
-							accept="image/*"
-							className="hidden"
-							onChange={(e) => setImage(e.target.files?.[0] || null)}
-						/>
-					</div>
+					<input
+						id="small-file-input"
+						type="file"
+						accept="image/*"
+						className="hidden"
+						onChange={(e) => setImage(e.target.files?.[0] || null)}
+					/>
+				</div>
 
 				{/* Botão para gerar o QR Code */}
 				<Button

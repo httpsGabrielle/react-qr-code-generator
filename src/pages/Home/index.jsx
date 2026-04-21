@@ -18,7 +18,7 @@ export default function Home() {
 	return (
 		<>
 			<div className="container mx-auto">
-				<div className="flex flex-wrap h-screen p-10 ">
+				<div className="flex flex-wrap min-h-screen p-10 gap-3">
 					<QrcodeForm
 						onSubmitForm={(e) => {
 							handleSubmit(e);
