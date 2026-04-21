@@ -5,6 +5,7 @@ import Button from './Button';
 export default function QrcodeGenerator({
 	text,
 	fgColor = '#00000',
+	image,
 	size = { width: 160, height: 160 },
 	allowsDownload = true,
 }) {
@@ -21,14 +22,21 @@ export default function QrcodeGenerator({
 
 	const QR_SIZE = (size?.width || size?.height) - 8; // Subtrai 8px para considerar o padding do container
 
+	console.log(image);
 	return (
 		<>
-			<div
-				ref={qrRef}
-				className="mx-auto bg-neutral-100 rounded-md"
-				style={{ width: `${size.width}px`, height: `${size.height}px` }}
-			>
-				{text && <QRCodeCanvas value={text} size={QR_SIZE} fgColor={fgColor} marginSize={1} />}
+			<div ref={qrRef} className="mx-auto bg-neutral-100 rounded-md p-1">
+				{text && (
+					<QRCodeCanvas
+						value={text}
+						size={QR_SIZE}
+						fgColor={fgColor}
+						marginSize={1}
+						imageSettings={
+							image && { src: URL.createObjectURL(image), height: 24, width: 24, opacity: 1, excavate: true }
+						}
+					/>
+				)}
 			</div>
 
 			<Button

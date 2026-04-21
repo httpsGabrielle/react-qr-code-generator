@@ -11,6 +11,7 @@ const tailwindColors = Object.entries(colors)
 export default function Home({ onSubmitForm }) {
 	const [text, setText] = useState(''); // # Estado para armazenar o link ou texto a ser convertido em QR Code
 	const [fgColor, setFgColor] = useState('#000000'); // # Estado para armazenar a cor selecionada para o QR Code (opcional)
+	const [image, setImage] = useState(''); // #
 
 	const colorsOptions = [
 		'#000000', // Preto (padrão)
@@ -21,7 +22,7 @@ export default function Home({ onSubmitForm }) {
 	// Função para lidar com o envio do formulário e geração do QR Code
 	function handleSubmit() {
 		// TO-DO: Implementar verificações antes de gerar o QR Code
-		onSubmitForm({ text, fgColor });
+		onSubmitForm({ text, fgColor, image });
 	}
 
 	// Componente para pré-visualização das cores disponíveis
@@ -70,6 +71,23 @@ export default function Home({ onSubmitForm }) {
 						{colorsOptions.map((option, index) => (
 							<ColorPreview key={index} color={option} selected={fgColor === option} />
 						))}
+					</div>
+				</div>
+
+				{/* Logo pra QR Code */}
+				<div>
+					<p className="text-sm text-neutral-500 font-medium">Imagem:</p>
+					<div>
+						<label for="small-file-input" class="sr-only">
+							Choose file
+						</label>
+						<input
+							type="file"
+							name="small-file-input"
+							id="file-input"
+							accept="image/*"
+							onChange={(e) => setImage(e.target.files[0])}
+						/>
 					</div>
 				</div>
 
