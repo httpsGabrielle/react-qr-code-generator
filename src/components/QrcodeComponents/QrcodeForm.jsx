@@ -14,6 +14,8 @@ import {
 
 import { qrcodeSchema } from "../../schemas/qrcodeSchema";
 
+import { useQrcode } from "../../contexts/QrcodeContext";
+
 function ColorField({ label, value, onChange }) {
   return (
     <Stack spacing={0.75} sx={{ flex: 1 }}>
@@ -81,6 +83,8 @@ function SliderField({ label, unit, field, ...sliderProps }) {
 }
 
 export default function QRCodeForm() {
+  const { setQrcodeData } = useQrcode();
+
   const { control, handleSubmit } = useForm({
     resolver: zodResolver(qrcodeSchema),
     defaultValues: {
@@ -93,7 +97,7 @@ export default function QRCodeForm() {
   });
 
   const onSubmit = (data) => {
-    console.log(data);
+    setQrcodeData(data);
   };
 
   return (
