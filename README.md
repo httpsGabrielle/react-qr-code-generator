@@ -1,16 +1,80 @@
-# React + Vite
+# QR Code Generator
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<p align="center">
+  <img src="https://img.shields.io/badge/React-19-61DAFB?style=for-the-badge&logo=react&logoColor=black" alt="React" />
+  <img src="https://img.shields.io/badge/Vite-8-646CFF?style=for-the-badge&logo=vite&logoColor=white" alt="Vite" />
+  <img src="https://img.shields.io/badge/MUI-9-007FFF?style=for-the-badge&logo=mui&logoColor=white" alt="Material UI" />
+  <img src="https://img.shields.io/badge/React_Hook_Form-7-EC5990?style=for-the-badge&logo=reacthookform&logoColor=white" alt="React Hook Form" />
+  <img src="https://img.shields.io/badge/Zod-4-3E67B1?style=for-the-badge&logo=zod&logoColor=white" alt="Zod" />
+  <img src="https://img.shields.io/badge/Vercel-deploy-000000?style=for-the-badge&logo=vercel&logoColor=white" alt="Vercel" />
+</p>
 
-Currently, two official plugins are available:
+Gerador de QR Code feito em React: configure o conteúdo, o tamanho, a margem e as cores, visualize o resultado em tempo real e baixe o QR Code em PNG.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## ✨ Funcionalidades
 
-## React Compiler
+- 📝 Geração de QR Code a partir de qualquer texto ou URL (até 1000 caracteres)
+- 📏 Tamanho ajustável (100px a 1000px)
+- 🔳 Margem configurável
+- 🎨 Cores personalizadas para o QR Code e para o fundo
+- ✅ Validação do formulário com Zod + React Hook Form
+- 💾 Download do QR Code em PNG
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🛠️ Tecnologias
 
-## Expanding the ESLint configuration
+| Tecnologia | Uso |
+| --- | --- |
+| [React 19](https://react.dev/) | Biblioteca de UI |
+| [Vite](https://vite.dev/) | Build e dev server |
+| [Material UI](https://mui.com/) | Componentes e tema |
+| [React Hook Form](https://react-hook-form.com/) | Gerenciamento do formulário |
+| [Zod](https://zod.dev/) | Validação de schema |
+| [qrcode.react](https://github.com/zpao/qrcode.react) | Renderização do QR Code |
+| [React Router](https://reactrouter.com/) | Rotas |
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🚀 Como rodar
+
+```bash
+# Clone o repositório
+git clone https://github.com/httpsGabrielle/react-qr-code-generator.git
+cd react-qr-code-generator
+
+# Instale as dependências
+npm install
+
+# Inicie o servidor de desenvolvimento
+npm run start
+```
+
+O app fica disponível em `http://localhost:5173`.
+
+### Outros scripts
+
+```bash
+npm run build     # build de produção
+npm run preview   # pré-visualiza o build
+npm run lint      # roda o ESLint
+```
+
+## 📁 Estrutura
+
+```
+src/
+├── components/
+│   └── QrcodeComponents/
+│       ├── QrcodeForm.jsx   # formulário de configuração
+│       └── QrcodeView.jsx   # preview e download do QR Code
+├── contexts/
+│   └── QrcodeContext.jsx    # estado compartilhado do QR Code
+├── layout/                  # layout base e header
+├── pages/
+│   └── QrcodePage/          # página principal
+├── routes/                  # configuração de rotas
+├── schemas/
+│   └── qrcodeSchema.jsx     # schema de validação (Zod)
+└── theme/                   # tema e design tokens (MUI)
+```
+
+---
+
+Feito com 💜 por [Gabrielle Oliveira](https://github.com/httpsGabrielle)
